@@ -1,0 +1,13 @@
+/etc/httpd/conf/workers2.properties
+jk2_init()
+mod_jk2
+env.createBean2():
+mod_security/<a>.9dev2
+/var/www/html/scripts/..%5c..
+/var/www/html/scripts/..\xc1\x1c..
+/var/www/html/scripts/..\xc0\xaf..
+/var/www/html/scripts/..\xc1\x9c..
+/var/www/html/scripts/..%2f..
+/var/www/html/ip1.cgi
+/var/www/html/scripts/..%5c%5c..
+RFC2616

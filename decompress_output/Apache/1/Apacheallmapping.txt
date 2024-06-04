@@ -1,0 +1,583 @@
+[Sun Dec <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Sun Dec <b> <T> <dc>] [error] mod_jk child workerEnv in error state <a>
+[Sun Dec <b> <T> <dc>] [notice] <*> Found child <dg> in scoreboard slot <b>
+[Sun Dec <b> <T> <dc>] [notice] <*> Found child <dg> in scoreboard slot <a>
+[Sun Dec <b> <T> <dc>] [notice] <*> Found child <di> in scoreboard slot <b>
+[Sun Dec <b> <T> <dc>] [notice] <*> Found child <di> in scoreboard slot <a>
+[Sun Dec <b> <T> <dc>] [notice] <*> Found child <ec> in scoreboard slot <a>
+[Sun Dec <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Sun Dec <b> <T> <dc>] [notice] <*> Found child <db> in scoreboard slot <b>
+[Sun Dec <b> <T> <dc>] [notice] <*> Found child <ed> in scoreboard slot <a>
+[Sun Dec <b> <T> <dc>] [notice] <*> Found child <ed> in scoreboard slot <b>
+[Sun Dec <b> <T> <dc>] [error] mod_jk child workerEnv in error state <b>
+[Sun Dec <b> <T> <dc>] [notice] <*> Found child <c> in scoreboard slot <a>
+[Sun Dec <b> <T> <dc>] [notice] <*> Found child <c> in scoreboard slot <b>
+[Sun Dec <b> <T> <dc>] [notice] <*> Found child <db> in scoreboard slot <a>
+[Sun Dec <b> <T> <dc>] [error] <*> Can't find child <db> in scoreboard
+[Sun Dec <b> <T> <dc>] [error] mod_jk child init <a> -<a>
+[Sun Dec <b> <T> <dc>] [notice] <*> Found child <dc> in scoreboard slot <a>
+[Sun Dec <b> <T> <dc>] [error] <*> Can't find child <dc> in scoreboard
+[Mon Dec <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Mon Dec <b> <T> <dc>] [notice] <*> Found child <dc> in scoreboard slot <a>
+[Mon Dec <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Mon Dec <b> <T> <dc>] [error] mod_jk child workerEnv in error state <a>
+[Mon Dec <b> <T> <dc>] [notice] <*> Found child <dc> in scoreboard slot <b>
+[Mon Dec <b> <T> <dc>] [notice] <*> Found child <dd> in scoreboard slot <a>
+[Mon Dec <b> <T> <dc>] [notice] <*> Found child <dd> in scoreboard slot <b>
+[Mon Dec <b> <T> <dc>] [error] mod_jk child workerEnv in error state <b>
+[Mon Dec <b> <T> <dc>] [notice] <*> Found child <de> in scoreboard slot <a>
+[Mon Dec <b> <T> <dc>] [notice] <*> Found child <de> in scoreboard slot <b>
+[Mon Dec <b> <T> <dc>] [notice] <*> Found child <df> in scoreboard slot <a>
+[Mon Dec <b> <T> <dc>] [error] <*> Can't find child <df> in scoreboard
+[Mon Dec <b> <T> <dc>] [notice] <*> Found child <df> in scoreboard slot <b>
+[Mon Dec <b> <T> <dc>] [error] mod_jk child init <a> -<a>
+[Mon Dec <b> <T> <dc>] [notice] <*> Found child <dg> in scoreboard slot <a>
+[Mon Dec <b> <T> <dc>] [notice] <*> Found child <dg> in scoreboard slot <b>
+[Mon Dec <b> <T> <dc>] [error] <*> Can't find child <dg> in scoreboard
+[Mon Dec <b> <T> <dc>] [notice] <*> Found child <dh> in scoreboard slot <b>
+[Mon Dec <b> <T> <dc>] [notice] <*> Found child <dh> in scoreboard slot <a>
+[Tue Dec <b> <T> <dc>] [notice] <*> Found child <dh> in scoreboard slot <a>
+[Tue Dec <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Tue Dec <b> <T> <dc>] [error] mod_jk child workerEnv in error state <a>
+[Tue Dec <b> <T> <dc>] [notice] <*> Found child <dh> in scoreboard slot <b>
+[Tue Dec <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Tue Dec <b> <T> <dc>] [error] <*> Can't find child <di> in scoreboard
+[Tue Dec <b> <T> <dc>] [notice] <*> Found child <di> in scoreboard slot <a>
+[Tue Dec <b> <T> <dc>] [error] mod_jk child init <a> -<a>
+[Tue Dec <b> <T> <dc>] [notice] <*> Found child <di> in scoreboard slot <b>
+[Tue Dec <b> <T> <dc>] [notice] <*> Found child <dj> in scoreboard slot <a>
+[Tue Dec <b> <T> <dc>] [notice] <*> Found child <dj> in scoreboard slot <b>
+[Tue Dec <b> <T> <dc>] [error] <*> Can't find child <dj> in scoreboard
+[Tue Dec <b> <T> <dc>] [warn] child process <ec> still did not exit, sending a SIGTERM
+[Tue Dec <b> <T> <dc>] [notice] <*> Shutting down
+[Tue Dec <b> <T> <dc>] [warn] child process <ed> still did not exit, sending a SIGTERM
+[Tue Dec <b> <T> <dc>] [warn] child process <dc> still did not exit, sending a SIGTERM
+[Tue Dec <b> <T> <dc>] [warn] child process <eb> still did not exit, sending a SIGTERM
+[Tue Dec <b> <T> <dc>] [warn] child process <dg> still did not exit, sending a SIGTERM
+[Tue Dec <b> <T> <dc>] [warn] child process <dj> still did not exit, sending a SIGTERM
+[Tue Dec <b> <T> <dc>] [warn] child process <db> still did not exit, sending a SIGTERM
+[Tue Dec <b> <T> <dc>] [notice] LDAP: Built with OpenLDAP LDAP SDK
+[Tue Dec <b> <T> <dc>] [notice] LDAP: SSL support unavailable
+[Tue Dec <b> <T> <dc>] [notice] suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Tue Dec <b> <T> <dc>] [notice] Digest: generating secret for digest authentication ...
+[Tue Dec <b> <T> <dc>] [notice] Digest: done
+[Tue Dec <b> <T> <dc>] [error] <*> Factory error creating channel.jni:jni ( channel.jni, jni)
+[Tue Dec <b> <T> <dc>] [error] config.update(): Can't create channel.jni:jni
+[Tue Dec <b> <T> <dc>] [error] <*> Factory error creating vm: ( vm, )
+[Tue Dec <b> <T> <dc>] [error] config.update(): Can't create vm:
+[Tue Dec <b> <T> <dc>] [error] <*> Factory error creating worker.jni:onStartup ( worker.jni, onStartup)
+[Tue Dec <b> <T> <dc>] [error] config.update(): Can't create worker.jni:onStartup
+[Tue Dec <b> <T> <dc>] [error] <*> Factory error creating worker.jni:onShutdown ( worker.jni, onShutdown)
+[Tue Dec <b> <T> <dc>] [error] config.update(): Can't create worker.jni:onShutdown
+[Tue Dec <b> <T> <dc>] [notice] mod_python: Creating <b> session mutexes based on <c> max processes and <a> max threads.
+[Tue Dec <b> <T> <dc>] [notice] <*> configured
+[Tue Dec <b> <T> <dc>] [error] <*> Can't find child <dc> in scoreboard
+[Tue Dec <b> <T> <dc>] [notice] <*> Found child <dc> in scoreboard slot <a>
+[Tue Dec <b> <T> <dc>] [notice] Apache/<a>.<a>.<b> (Fedora) configured -- resuming normal operations
+[Tue Dec <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/star
+[Wed Dec <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/scripts/root.exe
+[Wed Dec <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/MSADC
+[Wed Dec <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/c
+[Wed Dec <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/d
+[Wed Dec <b> <T> <dc>] [error] [client <I>] File does not exist: <*>
+[Wed Dec <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_vti_bin
+[Wed Dec <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_mem_bin
+[Wed Dec <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/msadc
+[Wed Dec <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Thu Dec <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Thu Dec <b> <T> <dc>] [notice] <*> Found child <eb> in scoreboard slot <a>
+[Thu Dec <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Thu Dec <b> <T> <dc>] [error] mod_jk child init <a> <a>
+[Thu Dec <b> <T> <dc>] [error] mod_jk child workerEnv in error state <a>
+[Fri Dec <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Fri Dec <b> <T> <dc>] [notice] <*> Found child <eb> in scoreboard slot <a>
+[Fri Dec <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Fri Dec <b> <T> <dc>] [error] mod_jk child init <a> <a>
+[Fri Dec <b> <T> <dc>] [error] mod_jk child workerEnv in error state <a>
+[Fri Dec <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/scripts/root.exe
+[Fri Dec <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/MSADC
+[Fri Dec <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/c
+[Fri Dec <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/d
+[Fri Dec <b> <T> <dc>] [error] [client <I>] File does not exist: <*>
+[Fri Dec <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_vti_bin
+[Fri Dec <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_mem_bin
+[Fri Dec <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/msadc
+[Sun Dec <b> <T> <dc>] [notice] Graceful restart requested, doing restart
+[Sun Dec <b> <T> <dc>] [notice] <*> Shutting down
+[Sun Dec <b> <T> <dc>] [notice] Digest: generating secret for digest authentication ...
+[Sun Dec <b> <T> <dc>] [notice] Digest: done
+[Sun Dec <b> <T> <dc>] [notice] LDAP: Built with OpenLDAP LDAP SDK
+[Sun Dec <b> <T> <dc>] [notice] LDAP: SSL support unavailable
+[Sun Dec <b> <T> <dc>] [error] <*> Factory error creating channel.jni:jni ( channel.jni, jni)
+[Sun Dec <b> <T> <dc>] [error] config.update(): Can't create channel.jni:jni
+[Sun Dec <b> <T> <dc>] [error] <*> Factory error creating vm: ( vm, )
+[Sun Dec <b> <T> <dc>] [error] config.update(): Can't create vm:
+[Sun Dec <b> <T> <dc>] [error] <*> Factory error creating worker.jni:onStartup ( worker.jni, onStartup)
+[Sun Dec <b> <T> <dc>] [error] config.update(): Can't create worker.jni:onStartup
+[Sun Dec <b> <T> <dc>] [error] <*> Factory error creating worker.jni:onShutdown ( worker.jni, onShutdown)
+[Sun Dec <b> <T> <dc>] [error] config.update(): Can't create worker.jni:onShutdown
+[Sun Dec <b> <T> <dc>] [notice] mod_python: Creating <b> session mutexes based on <c> max processes and <a> max threads.
+[Sun Dec <b> <T> <dc>] [notice] <*> configured
+[Sun Dec <b> <T> <dc>] [notice] Apache/<a>.<a>.<b> (Fedora) configured -- resuming normal operations
+[Sun Dec <b> <T> <dc>] [error] <*> Can't find child <ec> in scoreboard
+[Sun Dec <b> <T> <dc>] [error] <*> Can't find child <eb> in scoreboard
+[Sun Dec <b> <T> <dc>] [notice] <*> Found child <eb> in scoreboard slot <a>
+[Sun Jan <b> <T> <dc>] [notice] Graceful restart requested, doing restart
+[Sun Jan <b> <T> <dc>] [notice] <*> Shutting down
+[Sun Jan <b> <T> <dc>] [notice] Digest: generating secret for digest authentication ...
+[Sun Jan <b> <T> <dc>] [notice] Digest: done
+[Sun Jan <b> <T> <dc>] [notice] LDAP: Built with OpenLDAP LDAP SDK
+[Sun Jan <b> <T> <dc>] [notice] LDAP: SSL support unavailable
+[Sun Jan <b> <T> <dc>] [error] <*> Factory error creating channel.jni:jni ( channel.jni, jni)
+[Sun Jan <b> <T> <dc>] [error] config.update(): Can't create channel.jni:jni
+[Sun Jan <b> <T> <dc>] [error] <*> Factory error creating vm: ( vm, )
+[Sun Jan <b> <T> <dc>] [error] config.update(): Can't create vm:
+[Sun Jan <b> <T> <dc>] [error] <*> Factory error creating worker.jni:onStartup ( worker.jni, onStartup)
+[Sun Jan <b> <T> <dc>] [error] config.update(): Can't create worker.jni:onStartup
+[Sun Jan <b> <T> <dc>] [error] <*> Factory error creating worker.jni:onShutdown ( worker.jni, onShutdown)
+[Sun Jan <b> <T> <dc>] [error] config.update(): Can't create worker.jni:onShutdown
+[Sun Jan <b> <T> <dc>] [notice] mod_python: Creating <b> session mutexes based on <c> max processes and <a> max threads.
+[Sun Jan <b> <T> <dc>] [notice] <*> configured
+[Sun Jan <b> <T> <dc>] [notice] Apache/<a>.<a>.<b> (Fedora) configured -- resuming normal operations
+[Sun Jan <b> <T> <dc>] [error] <*> Can't find child <df> in scoreboard
+[Sun Jan <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Sun Jan <b> <T> <dc>] [error] mod_jk child init <a> -<a>
+[Sun Jan <b> <T> <dc>] [notice] <*> Found child <df> in scoreboard slot <a>
+[Sun Jan <b> <T> <dc>] [error] mod_jk child workerEnv in error state <a>
+[Fri Jan <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Fri Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/awstats/awstats.pl
+[Fri Jan <b> <T> <dc>] [notice] <*> Found child <ec> in scoreboard slot <a>
+[Fri Jan <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Fri Jan <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[Fri Jan <b> <T> <dc>] [error] <*> Can't find child <ec> in scoreboard
+[Fri Jan <b> <T> <dc>] [error] mod_jk child init <a> -<a>
+[Fri Jan <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats
+script not found or unable to stat
+[Fri Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blog
+[Fri Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blogs
+[Fri Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/drupal
+[Fri Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpgroupware
+[Fri Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/wordpress
+[Fri Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlrpc
+[Fri Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlsrv
+[Sat Jan <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Sat Jan <b> <T> <dc>] [notice] Graceful restart requested, doing restart
+[Sat Jan <b> <T> <dc>] [notice] <*> Shutting down
+[Sat Jan <b> <T> <dc>] [notice] Digest: generating secret for digest authentication ...
+[Sat Jan <b> <T> <dc>] [notice] Digest: done
+[Sat Jan <b> <T> <dc>] [notice] LDAP: Built with OpenLDAP LDAP SDK
+[Sat Jan <b> <T> <dc>] [notice] LDAP: SSL support unavailable
+[Sat Jan <b> <T> <dc>] [error] <*> Factory error creating channel.jni:jni ( channel.jni, jni)
+[Sat Jan <b> <T> <dc>] [error] config.update(): Can't create channel.jni:jni
+[Sat Jan <b> <T> <dc>] [error] <*> Factory error creating vm: ( vm, )
+[Sat Jan <b> <T> <dc>] [error] config.update(): Can't create vm:
+[Sat Jan <b> <T> <dc>] [error] <*> Factory error creating worker.jni:onStartup ( worker.jni, onStartup)
+[Sat Jan <b> <T> <dc>] [error] config.update(): Can't create worker.jni:onStartup
+[Sat Jan <b> <T> <dc>] [error] <*> Factory error creating worker.jni:onShutdown ( worker.jni, onShutdown)
+[Sat Jan <b> <T> <dc>] [error] config.update(): Can't create worker.jni:onShutdown
+[Sat Jan <b> <T> <dc>] [notice] mod_python: Creating <b> session mutexes based on <c> max processes and <a> max threads.
+[Sat Jan <b> <T> <dc>] [notice] <*> configured
+[Sat Jan <b> <T> <dc>] [notice] Apache/<a>.<a>.<b> (Fedora) configured -- resuming normal operations
+[Sat Jan <b> <T> <dc>] [error] <*> Can't find child <ec> in scoreboard
+[Sat Jan <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Sat Jan <b> <T> <dc>] [error] mod_jk child init <a> -<a>
+[Sat Jan <b> <T> <dc>] [notice] <*> Found child <ec> in scoreboard slot <a>
+[Sat Jan <b> <T> <dc>] [error] mod_jk child init <a> <a>
+[Sat Jan <b> <T> <dc>] [error] mod_jk child workerEnv in error state <a>
+[Sun Jan <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/sumthin
+[Sun Jan <b> <T> <dc>] [notice] <*> Found child <ed> in scoreboard slot <a>
+[Sun Jan <b> <T> <dc>] [error] <*> Can't find child <ed> in scoreboard
+[Sun Jan <b> <T> <dc>] [error] <*> Can't find child <dc> in scoreboard
+[Sun Jan <b> <T> <dc>] [notice] <*> Found child <dc> in scoreboard slot <a>
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/awstats/awstats.pl
+[Sun Jan <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[Sun Jan <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blog
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blogs
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/drupal
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpgroupware
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/wordpress
+[Sun Jan <b> <T> <dc>] [notice] <*> Found child <dc> in scoreboard slot <b>
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlrpc
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlsrv
+[Sun Jan <b> <T> <dc>] [error] <*> Can't find child <dd> in scoreboard
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/scripts/root.exe
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/MSADC
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/c
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/d
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: <*>
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_vti_bin
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_mem_bin
+[Sun Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/msadc
+[Mon Jan <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Mon Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/awstats/awstats.pl
+[Mon Jan <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[Mon Jan <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats
+[Mon Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/mambo
+[Mon Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cvs
+[Mon Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blog
+[Mon Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blogs
+[Mon Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/drupal
+[Mon Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpgroupware
+[Mon Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/wordpress
+[Mon Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlrpc
+[Mon Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlsrv
+[Mon Jan <b> <T> <dc>] [error] <*> Can't find child <df> in scoreboard
+[Mon Jan <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Mon Jan <b> <T> <dc>] [error] mod_jk child init <a> -<a>
+[Mon Jan <b> <T> <dc>] [notice] <*> Found child <df> in scoreboard slot <a>
+[Mon Jan <b> <T> <dc>] [error] mod_jk child workerEnv in error state <a>
+[Mon Jan <b> <T> <dc>] [notice] <*> Shutting down
+[Mon Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/NULL.printer
+[Mon Jan <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/ip.cgi
+[Mon Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/sumthin
+[Tue Jan <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/sumthin
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/awstats/awstats.pl
+[Tue Jan <b> <T> <dc>] [error] <*> Can't find child <di> in scoreboard
+[Tue Jan <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Tue Jan <b> <T> <dc>] [error] mod_jk child init <a> -<a>
+[Tue Jan <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[Tue Jan <b> <T> <dc>] [notice] <*> Found child <di> in scoreboard slot <b>
+[Tue Jan <b> <T> <dc>] [error] mod_jk child workerEnv in error state <a>
+[Tue Jan <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blog
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blogs
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/drupal
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpgroupware
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/wordpress
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlrpc
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlsrv
+[Tue Jan <b> <T> <dc>] [notice] <*> Shutting down
+[Wed Jan <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Wed Jan <b> <T> <dc>] [error] <*> Can't find child <eb> in scoreboard
+[Wed Jan <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Wed Jan <b> <T> <dc>] [error] mod_jk child init <a> -<a>
+[Wed Jan <b> <T> <dc>] [notice] <*> Found child <eb> in scoreboard slot <a>
+[Wed Jan <b> <T> <dc>] [error] mod_jk child workerEnv in error state <a>
+[Wed Jan <b> <T> <dc>] [notice] <*> Found child <eb> in scoreboard slot <b>
+[Wed Jan <b> <T> <dc>] [notice] <*> Shutting down
+[Wed Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/awstats/awstats.pl
+[Wed Jan <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[Wed Jan <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats
+[Wed Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/mambo
+[Wed Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cvs
+[Wed Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cacti
+[Thu Jan <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Thu Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_vti_bin
+[Thu Jan <b> <T> <dc>] [error] [client <I>] request failed: URI too long (longer than <di>)
+[Thu Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/scripts/nsiislog.dll
+[Fri Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/sumthin
+[Sat Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/mambo
+[Sat Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cvs
+[Sat Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/drupal
+[Sat Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpgroupware
+[Sat Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/wordpress
+[Sat Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/awstats/awstats.pl
+[Sat Jan <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[Sat Jan <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats
+[Sat Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blog
+[Sat Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blogs
+[Sat Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlrpc
+[Sat Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlsrv
+[Sat Jan <b> <T> <dc>] [notice] <*> Found child <ec> in scoreboard slot <b>
+[Sat Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_vti_bin
+[Sat Jan <b> <T> <dc>] [error] [client <I>] request failed: URI too long (longer than <di>)
+[Sun Jan <b> <T> <dc>] [error] <*> Can't find child <ec> in scoreboard
+[Sun Jan <b> <T> <dc>] [notice] <*> Found child <ec> in scoreboard slot <b>
+[Sun Jan <b> <T> <dc>] [notice] <*> Found child <ec> in scoreboard slot <a>
+[Sun Jan <b> <T> <dc>] [notice] <*> Found child <ed> in scoreboard slot <b>
+[Sun Jan <b> <T> <dc>] [error] [client <I>] request failed: URI too long (longer than <di>)
+[Mon Jan <b> <T> <dc>] [notice] <*> Found child <db> in scoreboard slot <b>
+[Mon Jan <b> <T> <dc>] [error] <*> Can't find child <db> in scoreboard
+[Mon Jan <b> <T> <dc>] [notice] <*> Found child <dd> in scoreboard slot <a>
+[Mon Jan <b> <T> <dc>] [error] mod_jk child init <a> <a>
+[Mon Jan <b> <T> <dc>] [error] <*> Can't find child <dd> in scoreboard
+[Mon Jan <b> <T> <dc>] [notice] <*> Found child <dd> in scoreboard slot <b>
+[Mon Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_vti_bin
+[Mon Jan <b> <T> <dc>] [error] [client <I>] request failed: URI too long (longer than <di>)
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpmyadmin
+[Tue Jan <b> <T> <dc>] [error] <*> Can't find child <dd> in scoreboard
+[Tue Jan <b> <T> <dc>] [notice] <*> Found child <dd> in scoreboard slot <a>
+[Tue Jan <b> <T> <dc>] [notice] <*> Found child <dd> in scoreboard slot <b>
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/scripts/root.exe
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/MSADC
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/c
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/d
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: <*>
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_vti_bin
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_mem_bin
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/msadc
+[Wed Jan <b> <T> <dc>] [error] <*> Can't find child <dh> in scoreboard
+[Wed Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blog
+[Wed Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blogs
+[Wed Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/drupal
+[Wed Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpgroupware
+[Wed Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/wordpress
+[Wed Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlrpc
+[Wed Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlsrv
+[Thu Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/awstats/awstats.pl
+[Thu Jan <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[Thu Jan <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats
+[Thu Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blog
+[Thu Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blogs
+[Thu Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/drupal
+[Thu Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpgroupware
+[Thu Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/wordpress
+[Thu Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlrpc
+[Thu Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlsrv
+[Fri Jan <b> <T> <dc>] [error] <*> Can't find child <eb> in scoreboard
+[Fri Jan <b> <T> <dc>] [notice] <*> Found child <eb> in scoreboard slot <b>
+[Fri Jan <b> <T> <dc>] [error] mod_jk child workerEnv in error state <a>
+[Fri Jan <b> <T> <dc>] [notice] <*> Shutting down
+[Sat Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/modules
+[Sun Jan <b> <T> <dc>] [error] mod_jk child init <a> <a>
+[Tue Jan <b> <T> <dc>] [notice] <*> Found child <ed> in scoreboard slot <a>
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/mambo
+[Tue Jan <b> <T> <dc>] [error] <*> Can't find child <ed> in scoreboard
+[Tue Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cvs
+[Tue Jan <b> <T> <dc>] [error] <*> Can't find child <c> in scoreboard
+[Tue Jan <b> <T> <dc>] [notice] <*> Found child <c> in scoreboard slot <b>
+[Wed Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/sumthin
+[Wed Jan <b> <T> <dc>] [error] <*> Can't find child <c> in scoreboard
+[Wed Jan <b> <T> <dc>] [notice] <*> Found child <c> in scoreboard slot <a>
+[Wed Jan <b> <T> <dc>] [notice] <*> Found child <c> in scoreboard slot <b>
+[Wed Jan <b> <T> <dc>] [error] <*> Can't find child <dd> in scoreboard
+[Wed Jan <b> <T> <dc>] [notice] <*> Found child <dd> in scoreboard slot <a>
+[Wed Jan <b> <T> <dc>] [notice] <*> Found child <dd> in scoreboard slot <b>
+[Thu Jan <b> <T> <dc>] [notice] <*> Shutting down
+[Thu Jan <b> <T> <dc>] [warn] child process <c> still did not exit, sending a SIGTERM
+[Thu Jan <b> <T> <dc>] [warn] child process <dd> still did not exit, sending a SIGTERM
+[Thu Jan <b> <T> <dc>] [notice] LDAP: Built with OpenLDAP LDAP SDK
+[Thu Jan <b> <T> <dc>] [notice] LDAP: SSL support unavailable
+[Thu Jan <b> <T> <dc>] [notice] suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Thu Jan <b> <T> <dc>] [notice] Digest: generating secret for digest authentication ...
+[Thu Jan <b> <T> <dc>] [notice] Digest: done
+[Thu Jan <b> <T> <dc>] [error] <*> Factory error creating channel.jni:jni ( channel.jni, jni)
+[Thu Jan <b> <T> <dc>] [error] config.update(): Can't create channel.jni:jni
+[Thu Jan <b> <T> <dc>] [error] <*> Factory error creating vm: ( vm, )
+[Thu Jan <b> <T> <dc>] [error] config.update(): Can't create vm:
+[Thu Jan <b> <T> <dc>] [error] <*> Factory error creating worker.jni:onStartup ( worker.jni, onStartup)
+[Thu Jan <b> <T> <dc>] [error] config.update(): Can't create worker.jni:onStartup
+[Thu Jan <b> <T> <dc>] [error] <*> Factory error creating worker.jni:onShutdown ( worker.jni, onShutdown)
+[Thu Jan <b> <T> <dc>] [error] config.update(): Can't create worker.jni:onShutdown
+[Thu Jan <b> <T> <dc>] [notice] mod_python: Creating <b> session mutexes based on <c> max processes and <a> max threads.
+[Thu Jan <b> <T> <dc>] [notice] <*> configured
+[Thu Jan <b> <T> <dc>] [notice] Apache/<a>.<a>.<b> (Fedora) configured -- resuming normal operations
+[Thu Jan <b> <T> <dc>] [notice] <*> Found child <dc> in scoreboard slot <a>
+[Thu Jan <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Thu Jan <b> <T> <dc>] [error] mod_jk child init <a> <a>
+[Thu Jan <b> <T> <dc>] [error] [client <I>] File does not exist: <*>
+[Fri Jan <b> <T> <dc>] [notice] <*> Found child <dd> in scoreboard slot <a>
+[Fri Jan <b> <T> <dc>] [error] <*> Can't find child <dd> in scoreboard
+[Fri Jan <b> <T> <dc>] [notice] <*> Found child <dd> in scoreboard slot <b>
+[Fri Jan <b> <T> <dc>] [error] [client <I>] client sent HTTP/<a>.<a> request without hostname (see <*> section <b>.<b>): /
+[Sat Jan <b> <T> <dc>] [notice] <*> Found child <dd> in scoreboard slot <b>
+[Sat Jan <b> <T> <dc>] [error] <*> Can't find child <dd> in scoreboard
+[Sat Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/scripts/nsiislog.dll
+[Sat Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/Forums
+[Mon Jan <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpmyadmin
+[Wed Feb <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/awstats/awstats.pl
+[Wed Feb <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[Wed Feb <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blog
+[Wed Feb <b> <T> <dc>] [notice] <*> Found child <dd> in scoreboard slot <a>
+[Wed Feb <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blogs
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/drupal
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpgroupware
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/wordpress
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlrpc
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlsrv
+[Wed Feb <b> <T> <dc>] [notice] <*> Shutting down
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_vti_bin
+[Wed Feb <b> <T> <dc>] [error] [client <I>] request failed: URI too long (longer than <di>)
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/~ipcom
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/sumthin
+[Thu Feb <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/awstats/awstats.pl
+[Thu Feb <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[Thu Feb <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blog
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blogs
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/drupal
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpgroupware
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/wordpress
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlrpc
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlsrv
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/level
+[Fri Feb <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: <*>
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/awstats/awstats.pl
+[Fri Feb <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[Fri Feb <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blog
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blogs
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/drupal
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpgroupware
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/wordpress
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlrpc
+[Sat Feb <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Sat Feb <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[Sat Feb <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/awstats/awstats.pl
+[Sat Feb <b> <T> <dc>] [notice] <*> Found child <de> in scoreboard slot <a>
+[Sat Feb <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blog
+[Sat Feb <b> <T> <dc>] [error] <*> Can't find child <de> in scoreboard
+[Sat Feb <b> <T> <dc>] [error] mod_jk child init <a> -<a>
+[Sat Feb <b> <T> <dc>] [notice] <*> Found child <de> in scoreboard slot <b>
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blogs
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpgroupware
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlrpc
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlsrv
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/drupal
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/wordpress
+[Sat Feb <b> <T> <dc>] [notice] <*> Shutting down
+[Sun Feb <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Mon Feb <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/awstats/awstats.pl
+[Mon Feb <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[Mon Feb <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blog
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blogs
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/drupal
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpgroupware
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/wordpress
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlrpc
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlsrv
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/level
+[Tue Feb <b> <T> <dc>] [error] [client <I>] Directory index forbidden by rule: /var/www/html/
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/scripts/root.exe
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/MSADC
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/c
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/d
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: <*>
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_vti_bin
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_mem_bin
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/msadc
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/awstats/awstats.pl
+[Tue Feb <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[Tue Feb <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blog
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blogs
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpgroupware
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/wordpress
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/drupal
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlrpc
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlsrv
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/level
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/scripts/nsiislog.dll
+[Wed Feb <b> <T> <dc>] [notice] <*> Found child <de> in scoreboard slot <a>
+[Wed Feb <b> <T> <dc>] [error] <*> Can't find child <de> in scoreboard
+[Wed Feb <b> <T> <dc>] [error] mod_jk child init <a> -<a>
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/~ipcom
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_vti_bin
+[Thu Feb <b> <T> <dc>] [error] [client <I>] request failed: URI too long (longer than <di>)
+[Thu Feb <b> <T> <dc>] [notice] <*> Found child <de> in scoreboard slot <a>
+[Thu Feb <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Thu Feb <b> <T> <dc>] [notice] <*> Shutting down
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/mambo
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cache
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlsrv
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/scripts/root.exe
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/MSADC
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/c
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/d
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_vti_bin
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_mem_bin
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/msadc
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/mambo
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cache
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/sumthin
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cvs
+[Sun Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/mambo
+[Sun Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cache
+[Sun Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blog
+[Sun Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/blogs
+[Sun Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/drupal
+[Sun Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/phpgroupware
+[Sun Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/wordpress
+[Sun Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlrpc
+[Sun Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/xmlsrv
+[Sun Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/awstats/awstats.pl
+[Sun Feb <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[Sun Feb <b> <T> <dc>] [error] [client <I>] script not found or unable to stat: /var/www/cgi-bin/awstats
+[Mon Feb <b> <T> <dc>] [notice] <*> Found child <de> in scoreboard slot <a>
+[Mon Feb <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Mon Feb <b> <T> <dc>] [error] <*> Can't find child <de> in scoreboard
+[Mon Feb <b> <T> <dc>] [error] mod_jk child init <a> -<a>
+[Mon Feb <b> <T> <dc>] [notice] <*> Found child <de> in scoreboard slot <b>
+[Mon Feb <b> <T> <dc>] [notice] <*> Shutting down
+[Tue Feb <b> <T> <dc>] [error] <*> Can't find child <de> in scoreboard
+[Tue Feb <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Tue Feb <b> <T> <dc>] [error] mod_jk child init <a> -<a>
+[Tue Feb <b> <T> <dc>] [notice] <*> Found child <de> in scoreboard slot <b>
+[Tue Feb <b> <T> <dc>] [notice] <*> Shutting down
+[Tue Feb <b> <T> <dc>] [notice] <*> Found child <de> in scoreboard slot <a>
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/sumthin
+[Wed Feb <b> <T> <dc>] [error] <*> Can't find child <df> in scoreboard
+[Wed Feb <b> <T> <dc>] [notice] <*> Found child <df> in scoreboard slot <b>
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/mambo
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cvs
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/articles
+[Thu Feb <b> <T> <dc>] [error] <*> Can't find child <df> in scoreboard
+[Thu Feb <b> <T> <dc>] [error] mod_jk child init <a> -<a>
+[Thu Feb <b> <T> <dc>] [notice] <*> Found child <df> in scoreboard slot <b>
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/mambo
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cvs
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/articles
+[Thu Feb <b> <T> <dc>] [notice] <*> Found child <df> in scoreboard slot <a>
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/scripts/root.exe
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/MSADC
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/c
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/d
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: <*>
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_mem_bin
+[Thu Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/msadc
+[Fri Feb <b> <T> <dc>] [notice] <*> Found child <df> in scoreboard slot <a>
+[Fri Feb <b> <T> <dc>] [notice] workerEnv.init() ok <*>
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cvs
+[Fri Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/articles
+[Fri Feb <b> <T> <dc>] [error] <*> Can't find child <df> in scoreboard
+[Fri Feb <b> <T> <dc>] [error] mod_jk child init <a> -<a>
+[Fri Feb <b> <T> <dc>] [notice] <*> Shutting down
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/articles
+[Sun Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cvs
+[Sun Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/articles
+[Mon Feb <b> <T> <dc>] [notice] <*> Found child <df> in scoreboard slot <a>
+[Mon Feb <b> <T> <dc>] [error] <*> Can't find child <df> in scoreboard
+[Mon Feb <b> <T> <dc>] [notice] <*> Found child <df> in scoreboard slot <b>
+[Mon Feb <b> <T> <dc>] [notice] <*> Found child <df> in scoreboard slot <c>
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/mambo
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cvs
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/articles
+[Mon Feb <b> <T> <dc>] [error] mod_jk child init <a> <a>
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/mambo
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cvs
+[Tue Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/articles
+[Wed Feb <b> <T> <dc>] [error] [client <I>] File does not exist: <*>
+[Wed Feb <b> <T> <dc>] [error] <*> Can't find child <dg> in scoreboard
+[Fri Feb <b> <T> <dc>] [notice] <*> Found child <dg> in scoreboard slot <a>
+[Fri Feb <b> <T> <dc>] [error] <*> Can't find child <dg> in scoreboard
+[Sat Feb <b> <T> <dc>] [error] <*> Can't find child <dg> in scoreboard
+[Sat Feb <b> <T> <dc>] [notice] <*> Found child <dg> in scoreboard slot <b>
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/WebCalendar
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/webcalendar
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/cal
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/Calendar
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/calendar
+[Sat Feb <b> <T> <dc>] [notice] <*> Found child <dg> in scoreboard slot <a>
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: <*>
+[Sat Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/level
+[Sun Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/level
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/scripts/root.exe
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/MSADC
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/c
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/d
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: <*>
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_vti_bin
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/_mem_bin
+[Mon Feb <b> <T> <dc>] [error] [client <I>] File does not exist: /var/www/html/msadc
