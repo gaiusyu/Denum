@@ -19,15 +19,14 @@ from multiprocessing import Pool
 class dataloader():
 
     def __init__(self,dataset_information):
-        self.logformat=dataset_information['logformat']
+ 
         self.path=dataset_information['input_path']
         self.logname=dataset_information['dataset_name']
-        self.digit_headers=dataset_information['digit_header']
+ 
         self.logheader=[]
         self.logcontent=[]
         self.LZMA_list=[]
         self.PPMD_list=[]
-        self.caldelta=dataset_information['caldelta']
 
     def load_data(self,chunkID):
         headers, regex = self.generate_logformat_regex(self.logformat)
