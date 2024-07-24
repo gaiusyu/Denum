@@ -41,7 +41,7 @@ Assume the chunksize is set to 100000, and the target log file is Logs/HDFS/HDFS
 
 Assume the target log file is Logs/Apache/Apache.log
 
-1. `cd Denum_python_package`
+1. `cd Denum_Package`
 
 2. `python3 compress.py Apache`
 
@@ -83,11 +83,16 @@ the performance of other log compressors?
 3. Perform the above operations for different datasets. 
 
 Results:
-![img_3.png](img_3.png)
+
 CR
 
-![img_4.png](img_4.png)
+<img src="img_3.png" alt="img_3" width="500">
+
 CS
+
+<img src="img_4.png" alt="img_4" width="500">
+
+
 
 ### - RQ3
 For RQ3, the logs need to undergo Denum's number processing module, generating logs without numbers, and then applying it to other log compressors.
@@ -102,9 +107,10 @@ where `modified_logs` refers to the logs without numbers. We need to store `modi
 2. Compress `modified_logs` according to the instructions in other log compressors such as [LogReducer](https://github.com/THUBear-wjy/LogReducer), [LogZip](https://github.com/logpai/logzip) and [LogShrink](https://github.com/IntelligentDDS/LogShrink)
 
 Results:
-![img.png](img.png)
 
-![img_1.png](img_1.png)
+<img src="img.png" alt="img" width="500">
+
+<img src="img_1.png" alt="img_1" width="500">
 
 ### - RQ4
 
