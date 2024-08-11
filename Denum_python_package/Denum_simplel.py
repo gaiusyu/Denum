@@ -498,10 +498,7 @@ class dataloader():
 
 
     def split_and_group_by_space(self,input_list):
-        # 使用列表推导式和zip函数将输入的字符串列表按空格划分并分组
         grouped = list(zip(*(s for s in input_list)))
-
-        # 将zip对象中的元组转换回列表
         grouped = [list(group) for group in grouped]
 
         return grouped
@@ -585,8 +582,6 @@ class dataloader():
     def replace_and_group(self, lst):
         patterns = defaultdict(list)
         replaced = []
-
-        # 预编译正则表达式
         ip_pattern = re.compile(r'(\d+)\.(\d+)\.(\d+)\.(\d+)')
         timestamp_pattern_2 = re.compile(r'(\d+):(\d+):(\d+)\.(\d+)')
         timestamp_pattern_4 = re.compile(r'(\d+)-(\d+)-(\d+)-(\d+)\.(\d+)\.(\d+)')
@@ -810,36 +805,25 @@ class dataloader():
             chunkID += 1
 
     def replace_placeholders(self,placeholder,str_list, replacement_iter):
-        # 迭代器，用于依次获取替换列表中的元素
 
-        # 处理后的字符串列表
         replaced_list = []
-
-        # 遍历每个字符串
         for s in str_list:
-            # 当前字符串的副本，后续用于替换操作
             new_s = s
             while placeholder in new_s:
                 try:
-                    # 从替换列表中获取下一个元素
                     replacement = next(replacement_iter)
-                    # 替换字符串中的第一个'<*>'
                     new_s = new_s.replace(placeholder, str(replacement).strip(), 1)  # 只替换第一个匹配项
                 except StopIteration:
-                    # 如果替换列表的元素不够，就会抛出StopIteration异常
                     raise ValueError("Compressed file is damaged: Not enough replacement variables to replace all "+placeholder)
             replaced_list.append(new_s)
 
         return replaced_list
     def extract_pos_number(self,filename):
-        # 正则表达式匹配模式
         pattern = r'Apache(\d+)-(\d+)ids\.bin'
         match = re.search(pattern, filename)
         if match:
-            # 返回第二个匹配到的数字，即第二个*的位置的数字
             return int(match.group(2))
         else:
-            # 如果没有匹配到，返回一个大数，确保这些项排序在后
             return float('inf')
 
 
@@ -847,9 +831,7 @@ class dataloader():
 
 
     def find_files(self,directory, pattern):
-        # 构建搜索模式的完整路径
         search_pattern = os.path.join(directory, pattern)
-        # 使用glob找到匹配的所有文件路径
         file_list = glob.glob(search_pattern)
         return file_list
 
@@ -867,7 +849,6 @@ class dataloader():
         for id in ids:
             id=id-1
             header.append(mapping[id])
-
         return header
 
     def content_decompress(self, mapping_path, id_path):
@@ -1165,7 +1146,6 @@ class ExampleClass:
             entity_id += 1
             return pattern
 
-        # 定义替换函数
         def replace_with_pattern(match):
             num = match.group()
             before = match.string[:match.start()]
@@ -1181,10 +1161,7 @@ class ExampleClass:
             else:
                 patterns['<*>'].append(num)
                 return '<*>'
-
-        # 遍历列表中的每个项目
         for item in lst:
-            # 替换所有数字序列
             replaced_item = re.sub(r'\d+', replace_with_pattern, item)
             replaced.append(replaced_item)
 

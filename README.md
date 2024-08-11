@@ -1,6 +1,6 @@
 # Denum
-## An Effective and Efficient Log Compressor by Parsing Numbers
-
+## Unlocking the Power of Numbers: Log Compression via Numeric Token Parsing
+accepted by the 39th IEEE/ACM International Conference on Automated Software Engineering (ASE 2024)
 
 
 ##### Dataset
@@ -25,6 +25,11 @@ gcc >= 9.4.0
 
 PCRE2 = 10.34
 
+libboost-iostreams-dev = 1.71.0.0ubuntu2
+
+In our environment with gcc, we used the following two commands to complete the configuration of the experimental environment: 
+
+1. ` apt install libpcre2-dev` 2. `apt install libboost-iostreams-dev`
 
 ##### 1. Compile
 
@@ -35,7 +40,12 @@ PCRE2 = 10.34
 
 Assume the chunksize is set to 100000, and the target log file is Logs/HDFS/HDFS.log
 
-`denum_compress HDFS 100000`
+`./denum_compress HDFS 100000 1`
+
+This repository contains Apache log file, you can run this directly without dataset downloading
+`./denum_compress Apache 100000 1`
+
+The last parameter is used to facilitate the retrieval of experimental results for each RQ: "1" indicates the default Denum, "2" indicates that logs will be output without numbers, used for RQ3, and "3" indicates Denum without string processing, used for RQ4.
 
 ### - Python implementation
 
@@ -47,6 +57,11 @@ Assume the target log file is Logs/Apache/Apache.log
 
 ### Decompress
 
+Note that datasets using different tags may encounter errors during decompression. We have only designed the recovery of the 
+IP address for Apache decompression. When applied to specific tags in specific datasets, users may need to mimic the function 
+of line809 to design recovery functions. This is because although the IPaddress mode is<\*>.<\*>.<\*>.<\*>, The number represented 
+by<\*>may be 1-3, so we will fill it with 0 and remove the high-order 0 during decompression. For example, the value of 1.1.1.1 
+during compression is 001001001. Users need to pay attention to the changes in the number of numbers represented by<\*>in the tag
 
 
 1. `cd Denum_Package`
@@ -54,6 +69,7 @@ Assume the target log file is Logs/Apache/Apache.log
 2. `python3 decompress.py Apache`
 
 ### Lossy Check
+
 
 1. `cd ..`
 
@@ -76,35 +92,44 @@ the performance of other log compressors?
 
 ### - RQ1 & RQ2
 
-1. download these datasets and copy them into Logs/{logname}/{logname}.log from [loghub](https://github.com/logpai/loghub)
+1. Download these datasets and put them into Logs/{logname}/{logname}.log from [loghub](https://github.com/logpai/loghub)
 
-2. Compile the code according to the previous instructions, and then run the following command: `denum_compress HDFS 100000`
+2. Compile the code according to the previous instructions, and then run the following command: `./denum_compress {logname} 100000 1`
 
 3. Perform the above operations for different datasets. 
+
+4. Record CR&CS
 
 Results:
 
 CR
 
+Since CR is unrelated to environment, we sourced the CRs of other compressors directly from the original
+papers
+
 <img src="img_3.png" alt="img_3" width="500">
 
+
+
 CS
+
+5. Reproduce [LogShrink](https://github.com/IntelligentDDS/LogShrink) and [LogReducer](https://github.com/THUBear-wjy/LogReducer) according their instructions.
+
+6. Record CS
 
 <img src="img_4.png" alt="img_4" width="500">
 
 
 
 ### - RQ3
-For RQ3, the logs need to undergo Denum's number processing module, generating logs without numbers, and then applying it to other log compressors.
+For RQ3, the logs need to undergo Denum's numeric token parsing module, generating logs without numbers, and then applying it to other log compressors.
 
-1. line 496 of [Denum_compress.cpp](https://anonymous.4open.science/r/Denum_ASE2024-66F3/Denum_compress.cpp), 
+1. Use mode "2" to generate logs without numbers
+`./denum_compress {logname} 100000 2`, `logs without numbers` are saved in /output/{logname}.log
 
-`std::vector\<std::string\> modified_logs = denum_processor.variable_extract(final_output, std::to_string(block_id));`,
+2. Compress `logs without numbers` according to the instructions in other log compressors such as [LogReducer](https://github.com/THUBear-wjy/LogReducer), [LogZip](https://github.com/logpai/logzip) and [LogShrink](https://github.com/IntelligentDDS/LogShrink)
 
-where `modified_logs` refers to the logs without numbers. We need to store `modified_logs` .
-
-
-2. Compress `modified_logs` according to the instructions in other log compressors such as [LogReducer](https://github.com/THUBear-wjy/LogReducer), [LogZip](https://github.com/logpai/logzip) and [LogShrink](https://github.com/IntelligentDDS/LogShrink)
+3. Note that the CR and CS output in the second step are not accurate. The compression time should include the time taken to generate logs without numbers. The CR is also incorrect because it is calculated based on logs without numbers. We need to calculate the CR using the achieved size and the original log file size.
 
 Results:
 
@@ -114,19 +139,17 @@ Results:
 
 ### - RQ4
 
-1. line 493 to 496 of [Denum_compress.cpp](https://anonymous.4open.science/r/Denum_ASE2024-66F3/Denum_compress.cpp): 
+1. The bar for Compressor(LZMA) is sourced from RQ1
+2. The bar for Number+Compressor(LZMA): Use mode "3" to generate CRs `./denum_compress {logname} 100000 3`
+2. The bar for Number+String+Compressor(LZMA) is the complete Denum
 
-493 ` auto [final_output, final_patterns] = log_processor.replace_and_group(block);`
-
-494 `std::string logname_dir = output_dir + "/" + std::to_string(block_id)+ "/";`
-
-495 `ensure_directory_exists(logname_dir);`
-
-496 `std::vector\<std::string\> modified_logs = denum_processor.variable_extract(final_output, std::to_string(block_id));`
-
-497 `denum_processor.store_content_with_ids(modified_logs, "all", std::to_string(block_id), "lzma");`
-
-Lines 493-496 implement number processing, while line 497 handles string processing. By controlling these parts of the statements, we can achieve ablation experiments.
 
 Results:
 ![img_2.png](img_2.png)
+
+### Tradeoff between CR&CS
+
+1. Different parameter setting to achieve this: 100K. `./denum_compress {logname} 100000 1`
+300K`./denum_compress {logname} 300000 1` 1m.`./denum_compress {logname} 1000000 1` 3m.`./denum_compress {logname} 3000000 1`
+
+<img src="img_5.png" alt="img_5" width="500">

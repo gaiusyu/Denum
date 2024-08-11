@@ -1,5 +1,20 @@
+/*
+Denum C++ implemention.
+
+Part One: elastic encoder/decoder
+
+Part two: Pure number/Tokens containing only numbers and special characters processing
+
+Part three: Numeric variable processing
+
+Part four: Block compression implementation
+
+Part five: Main function
+
+*/
+
+
 #define PCRE2_CODE_UNIT_WIDTH 8
-// #include <direct.h>
 #include <iostream>
 #include <unordered_set>
 #include <iostream>
@@ -22,9 +37,26 @@
 #include <algorithm>
 #include <queue>
 #include <cmath>
-const size_t BLOCK_SIZE = 100000;
+
 std::queue<std::string> lines;
 std::mutex mtx;
+
+
+
+/*
+Part One: elastic encoder/decoder
+
+METHODS:
+zigzag_encode()
+zigzag_decode()
+elastic_encode()
+elastic_decode()
+elastic_decode_bytes()
+
+DESCRIPTIONS: Elastic encoder/decoder, which is proposed by Wei in LogReducer. LogShrink also incoperated this techinology
+
+*/
+
 
 int64_t zigzag_encode(int64_t num) {
     return (num << 1) ^ (num >> 63);
@@ -75,202 +107,22 @@ std::vector<int64_t> elastic_decode_bytes(const std::vector<unsigned char>& bina
     }
     return num_list;
 }
-std::string regex_escape(const std::string& pattern) {
-            // 需要转义的特殊字符列表
-            static const std::string special_chars = R"([-[\]{}()*+?.\\^$|])";
 
-            // 构建转义后的模式
-            std::string escaped_pattern;
-            for (char c : pattern) {
-                if (special_chars.find(c) != std::string::npos) {
-                    escaped_pattern += '\\'; // 添加转义字符
-                }
-                escaped_pattern += c;
-            }
 
-            return escaped_pattern;
-        }
+/*
+Part two: Pure number/Tokens containing only numbers and special characters processing
 
-class DenumLogProcessor {
-private:
-    std::string logname;
+METHODS:
+compile_num()
+compile_pattern()
+replace_and_group()
+    process_with_pattern()
 
-public:
-    DenumLogProcessor(std::string name) : logname(name) {}
-
-    std::vector<std::string> variable_extract(const std::vector<std::string>& logs, const std::string& chunkID) {
-        std::vector<std::string> modified_lines;
-        std::vector<std::string> variable_set;
-        std::regex digit_pattern("\\d");
-        std::regex regex_pattern;
-        std::vector<std::string> delimiters;
-        std::tie(regex_pattern, delimiters) = delimeter_mining(logs);
-        std::string modified_line;
-        std::vector<std::string> split;
-        for (const auto& log : logs) {
-            modified_line = "";
-            split = split_by_multiple_delimiters(regex_pattern, log,true);
-            for (const auto& word : split) {
-                if (std::regex_search(word, digit_pattern)) {
-                    modified_line += "<*>";
-                    variable_set.push_back(word);
-                } else {
-                    modified_line += word;
-                }
-            }
-            modified_lines.push_back(modified_line);
-        }
-        store_content_with_ids(variable_set, "variableset", chunkID, "lzma");
-        return modified_lines;
-    }
-    
-    void ensure_directory_exists(const std::string& dir) {
-        struct stat buffer;
-        if (stat(dir.c_str(), &buffer) != 0) { // 检查目录是否存在
-            #ifdef _WIN32
-            _mkdir(dir.c_str());  // Windows 系统创建目录
-            #else
-            mkdir(dir.c_str(), 0777);  // Unix/Linux 系统创建目录
-            #endif
-        }
-    }
-    void store_content_with_ids(const std::vector<std::string>& input, const std::string& output, const std::string& chunkID, const std::string& compressor) {
-    std::unordered_map<std::string, int> content_to_id;
-    std::unordered_map<int, std::string> id_to_content;
-    int id_counter = 1;
-    std::vector<int> id_list;
-    std::string id_dir = "output/" + logname + "/" + chunkID + "/";
-    std::string ids_file_path = "output/" + logname + "/" + chunkID + "/" + logname + output + "ids.bin";
-    std::string mapping_file_path = "output/" + logname + "/" + chunkID + "/" + logname + output + "mapping.txt";
-    ensure_directory_exists(id_dir);
-
-    for (const auto& line : input) {
-        if (line.empty()) continue;
-        if (content_to_id.find(line) == content_to_id.end()) {
-            content_to_id[line] = id_counter;
-            id_to_content[id_counter] = line;
-            id_counter++;
-        }
-        id_list.push_back(content_to_id[line]);
-    }
-
-    // 创建一个有序的vector来存储id_to_content的内容
-    std::vector<std::pair<int, std::string>> sorted_content;
-    for (const auto& pair : id_to_content) {
-        sorted_content.push_back(pair);
-    }
-
-    // 根据id_counter排序
-    std::sort(sorted_content.begin(), sorted_content.end(), [](const auto& a, const auto& b) {
-        return a.first < b.first;
-    });
-
-    std::ofstream ids_file(ids_file_path, std::ios::binary);
-    std::ofstream mapping_file(mapping_file_path);
-
-    // 现在按照排序后的顺序写入mapping_file
-    for (const auto& pair : sorted_content) {
-        mapping_file << pair.second << "\n";
-    }
-
-    for (int id : id_list) {
-        auto encoded = elastic_encode(id);
-        ids_file.write(reinterpret_cast<const char*>(encoded.data()), encoded.size());
-    }
-
-    ids_file.close();
-    mapping_file.close();
-}
-
-    std::tuple<std::regex, std::vector<std::string>> delimeter_mining(const std::vector<std::string>& logs) {
-        std::vector<std::string> temp = logs;
-        std::random_shuffle(temp.begin(), temp.end());
-        std::unordered_set<size_t> lengths;
-        std::vector<std::string> sample;
-        size_t iteration_count = 0;
-        for (const auto& log : temp) {
-            size_t log_len = log.size();
-            if (lengths.find(log_len) == lengths.end()) {
-                lengths.insert(log_len);
-                sample.push_back(log);
-            }
-            iteration_count++;
-            if (lengths.size() >= 10 || iteration_count >= 200) {
-                break;
-            }
-        }
-        std::vector<std::string> delimiters = find_special_chars_with_high_freq(sample);
-        if (delimiters.empty()) {
-            throw std::runtime_error("No delimiters found. Cannot create a valid regex pattern.");
-        }
-
-        std::string pattern_str = "(";
-        for (const auto& delimiter : delimiters) {
-            if (!delimiter.empty()) {
-                pattern_str += regex_escape(delimiter) + "|";
-            }
-        }
-        if (pattern_str.back() == '|') {
-            pattern_str.pop_back(); // 移除末尾的 "|"
-        }
-        pattern_str += ")";
-
-        if (pattern_str == "()") {
-            throw std::runtime_error("Invalid regex pattern: " + pattern_str);
-        }
-        return std::make_tuple(std::regex(pattern_str), delimiters);
-    }
-
-    std::vector<std::string> split_by_multiple_delimiters(const std::regex& pattern, const std::string& str, bool include_delimiters) {
-        std::vector<std::string> result;
-        auto words_begin = std::sregex_iterator(str.begin(), str.end(), pattern);
-        auto words_end = std::sregex_iterator();
-
-        size_t last_pos = 0;
-        for (std::sregex_iterator iter = words_begin; iter != words_end; ++iter) {
-            std::smatch match = *iter;
-            size_t current_pos = match.position();
-            if (current_pos > last_pos) {
-                result.push_back(str.substr(last_pos, current_pos - last_pos));
-            }
-            if (include_delimiters) {
-                result.push_back(match.str());
-            }
-            last_pos = current_pos + match.length();
-        }
-
-        if (last_pos < str.length()) {
-            result.push_back(str.substr(last_pos));
-        }
-
-        return result;
-    }
-    std::vector<std::string> find_special_chars_with_high_freq(const std::vector<std::string>& str_list, size_t freq_threshold = 10) {
-        std::vector<char> candidates = {',', ' ', '|', ';', '[', ']', '(', ')', '_', '/'};
-        std::unordered_map<char, size_t> char_counter;
-        for (const auto& s : str_list) {
-            for (char c : s) {
-                if (std::find(candidates.begin(), candidates.end(), c) != candidates.end()) {
-                    char_counter[c]++;
-                }
-            }
-        }
-
-        std::vector<std::string> result;
-        for (const auto& pair : char_counter) {
-            if (pair.second > freq_threshold) {
-                result.push_back(std::string(1, pair.first));
-            }
-        }
-
-        // 如果结果为空，添加空格字符
-        if (result.empty()) {
-            result.push_back(" ");
-        }
-
-        return result;
-    }
-};
+DESCRIPTIONS: Since Numeric variable processing requires word split first, we have sperated it from these two types of numberic token parsing.
+Both compile_num() and compile_pattern() are designed to compile regular expression. replace_and_group() calls process_with_pattern() to find 
+pure numbers/tokens containing only numbers and special characters processing in logs and use corresponding tags to replace them, output a 
+replaced log list, a map storing tags and corresponding numbers。
+*/
 
 
 struct RegexPattern {
@@ -278,16 +130,16 @@ struct RegexPattern {
     std::vector<std::string> substitutions;
 };
 
-// LogProcessor 类
+// LogProcessor class
 class LogProcessor {
 public:
     std::string logname;
     std::unordered_map<std::string, RegexPattern> regex_map;
-    std::vector<pcre2_code *> compiled_patterns; // 用于存储编译后的正则表达式
+    std::vector<pcre2_code *> compiled_patterns; // Used to store the compiled regular expression.
     pcre2_code *re_num;
-    // 构造函数
+    // Constructor.
     LogProcessor(const std::string &name) : logname(name) {
-        // 预先定义不同 logname 的正则表达式和替换符号
+        // Predefined regular expressions and replacement symbols for different log names. You can modified these based on your systems.
         compile_num(&re_num, R"((?<![a-zA-Z0-9])\d+(?![a-zA-Z0-9]))");
         regex_map["Android"] = { {R"((\d+)\.(\d+)\.(\d+)\.(\d+))", R"((\d+)-(\d+) (\d+):(\d+):(\d+)(?:\.(\d+))?)"}, {"<I>", "<T>"} };
         regex_map["Apache"] = { {R"((\d+)\.(\d+)\.(\d+)\.(\d+))", R"((\d{2}) (\d+):(\d+):(\d+))"}, {"<I>", "<T>"} };
@@ -305,7 +157,7 @@ public:
         regex_map["Thunderbird"] = { { R"((\d+)\.(\d+)\.(\d+)\.(\d+))",R"((\d+):(\d+):(\d+))",R"((\d{4}})\.(\d+)\.(\d+))",R"(\[(\d+)\]:)"}, {"<I>","<T>","<A>","<B>"}};
         regex_map["Windows"] = { {  R"((\d+)\.(\d+)\.(\d+)\.(\d+))",R"((\d+)-(\d+)-(\d+) (\d+):(\d+):(\d+))", R"((\d+):(\d+):(\d+))"}, {"<I>","<T>","<D>"} };
         regex_map["Zookeeper"] = { {  R"((\d+)\.(\d+)\.(\d+)\.(\d+))",R"((\d+)-(\d+)-(\d+) (\d+):(\d+):(\d+),(\d+))", R"((\d+):(\d+):(\d+))"}, {"<I>","<T>","<D>"} };
-        // 根据 logname 编译正则表达式
+        // Compile the regular expression based on the log name.
         if (regex_map.find(logname) != regex_map.end()) {
             const auto &patterns = regex_map[logname].patterns;
             for (const auto &pattern : patterns) {
@@ -317,14 +169,22 @@ public:
         }
     }
 
-    // 析构函数
+    // Destructor.
     ~LogProcessor() {
-        // 释放编译的正则表达式
+        // Release the compiled regular expression.
         for (auto re : compiled_patterns) {
             pcre2_code_free(re);
         }
         pcre2_code_free(re_num);
     }
+    /*
+    replace_and_group() : parse pure numbers and tokens containing only numbers and special characters 
+
+    input: log list
+
+    output: replaced log list, a unordered_map to store tag and corresponding numbers
+
+    */
 
     std::pair<std::vector<std::string>, std::unordered_map<std::string, std::list<int64_t>>> replace_and_group(const std::vector<std::string> &lst) {
         std::unordered_map<std::string, std::list<int64_t>> patterns;
@@ -378,7 +238,6 @@ private:
             PCRE2_SIZE *ovector = pcre2_get_ovector_pointer(match_data);
 
             if (is_num) {
-                // 处理数字
                 std::string num = input.substr(ovector[0], ovector[1] - ovector[0]);
                 size_t len = num.length();
                 if (len < 15) {
@@ -389,7 +248,6 @@ private:
                     result += input.substr(last_pos, ovector[0] - last_pos) + num;
                 }
             } else {
-                // 处理非数字模式
                 std::string match = input.substr(ovector[0], ovector[1] - ovector[0]);
                 std::string num_str;
                 for (char c : match) {
@@ -405,63 +263,296 @@ private:
         }
         result += input.substr(last_pos);
 
-        pcre2_match_data_free(match_data); // 释放用于匹配数据的内存
+        pcre2_match_data_free(match_data); // Release the memory used for regex matching.
 
         return result;
     }
 };
 
-void process_segment(const std::vector<std::string>& lines, LogProcessor& processor, std::vector<std::string>& output, std::unordered_map<std::string, std::list<int64_t>>& patterns, size_t start, size_t end) {
-    std::vector<std::string> segment(lines.begin() + start, lines.begin() + end);
-    auto [seg_replaced, seg_patterns] = processor.replace_and_group(segment);
 
-    // 由于这里我们返回局部的patterns，因此不需要同步访问
-    output.insert(output.end(), seg_replaced.begin(), seg_replaced.end());
-    for (const auto &p : seg_patterns) {
-        patterns[p.first].insert(patterns[p.first].end(), p.second.begin(), p.second.end());
+/*
+Part Three: Numeric variable processing
+
+METHODS:
+varaible_extract()
+    delimiter_mining() 
+        find_special_chars_with_high_freq()
+    split_by_multiple_delimiters()
+store_content_with_id()
+regex_escape()
+
+
+DESCRIPTIONS: Since Numeric variable processing requires word split first, we have sperated it from the other two types of numberic token processing.
+The input of varaible_extract() is the replaced log list output by replace_and_group, this part of codes is related to parse numberic variable. delimiter_mining()
+calls find_special_chars_with_high_freq() to determine what delimeters should be used in word split. split_by_multiple_delimiters() conduct word split. 
+store_content_with_id() is a implementation of Dict-IDs manner storeage.
+
+*/
+
+
+class DenumLogProcessor {
+private:
+    std::string logname;
+
+public:
+    DenumLogProcessor(std::string name) : logname(name) {}
+    /*
+    variable_extract() : parse numberic variables and save extracted numberic variables to files
+
+    input: replaced log list (output of replace_and_group())
+
+    output: logs without numbers
+    */
+    std::vector<std::string> variable_extract(const std::vector<std::string>& logs, const std::string& chunkID) {
+        std::vector<std::string> modified_lines;
+        std::vector<std::string> variable_set;
+        std::regex digit_pattern("\\d");
+        std::regex regex_pattern;
+        std::vector<std::string> delimiters;
+        std::tie(regex_pattern, delimiters) = delimeter_mining(logs);
+        std::string modified_line;
+        std::vector<std::string> split;
+        for (const auto& log : logs) {
+            modified_line = "";
+            split = split_by_multiple_delimiters(regex_pattern, log,true);
+            for (const auto& word : split) {
+                if (std::regex_search(word, digit_pattern)) {
+                    modified_line += "<*>";
+                    variable_set.push_back(word);
+                } else {
+                    modified_line += word;
+                }
+            }
+            modified_lines.push_back(modified_line);
+        }
+        store_content_with_ids(variable_set, "variableset", chunkID, "lzma");
+        return modified_lines;
     }
+    
+    void ensure_directory_exists(const std::string& dir) {
+        struct stat buffer;
+        if (stat(dir.c_str(), &buffer) != 0) { // Check if the directory exists.
+            #ifdef _WIN32
+            _mkdir(dir.c_str());  
+            #else
+            mkdir(dir.c_str(), 0777);  
+            #endif
+        }
+    }
+
+
+    void store_content_with_ids(const std::vector<std::string>& input, const std::string& output, const std::string& chunkID, const std::string& compressor) {
+    std::unordered_map<std::string, int> content_to_id;
+    std::unordered_map<int, std::string> id_to_content;
+    int id_counter = 1;
+    std::vector<int> id_list;
+    std::string id_dir = "output/" + logname + "/" + chunkID + "/";
+    std::string ids_file_path = "output/" + logname + "/" + chunkID + "/" + logname + output + "ids.bin";
+    std::string mapping_file_path = "output/" + logname + "/" + chunkID + "/" + logname + output + "mapping.txt";
+    ensure_directory_exists(id_dir);
+
+    for (const auto& line : input) {
+        if (line.empty()) continue;
+        if (content_to_id.find(line) == content_to_id.end()) {
+            content_to_id[line] = id_counter;
+            id_to_content[id_counter] = line;
+            id_counter++;
+        }
+        id_list.push_back(content_to_id[line]);
+    }
+
+    // Create an ordered vector to store the contents of id_to_content.
+    std::vector<std::pair<int, std::string>> sorted_content;
+    for (const auto& pair : id_to_content) {
+        sorted_content.push_back(pair);
+    }
+
+    // Sort by id_counter.
+    std::sort(sorted_content.begin(), sorted_content.end(), [](const auto& a, const auto& b) {
+        return a.first < b.first;
+    });
+
+    std::ofstream ids_file(ids_file_path, std::ios::binary);
+    std::ofstream mapping_file(mapping_file_path);
+
+    // Now write to mapping_file in the sorted order.
+    for (const auto& pair : sorted_content) {
+        mapping_file << pair.second << "\n";
+    }
+
+    for (int id : id_list) {
+        auto encoded = elastic_encode(id);
+        ids_file.write(reinterpret_cast<const char*>(encoded.data()), encoded.size());
+    }
+
+    ids_file.close();
+    mapping_file.close();
 }
+
+    std::string regex_escape(const std::string& pattern) {
+            // List of special characters that need to be escaped.
+            static const std::string special_chars = R"([-[\]{}()*+?.\\^$|])";
+
+            // Construct the escaped pattern.
+            std::string escaped_pattern;
+            for (char c : pattern) {
+                if (special_chars.find(c) != std::string::npos) {
+                    escaped_pattern += '\\'; // Add escape characters.
+                }
+                escaped_pattern += c;
+            }
+
+            return escaped_pattern;
+        }
+
+    std::tuple<std::regex, std::vector<std::string>> delimeter_mining(const std::vector<std::string>& logs) {
+        std::vector<std::string> temp = logs;
+        std::random_shuffle(temp.begin(), temp.end());
+        std::unordered_set<size_t> lengths;
+        std::vector<std::string> sample;
+        size_t iteration_count = 0;
+        for (const auto& log : temp) {
+            size_t log_len = log.size();
+            if (lengths.find(log_len) == lengths.end()) {
+                lengths.insert(log_len);
+                sample.push_back(log);
+            }
+            iteration_count++;
+            if (lengths.size() >= 10 || iteration_count >= 200) {
+                break;
+            }
+        }
+        std::vector<std::string> delimiters = find_special_chars_with_high_freq(sample);
+        if (delimiters.empty()) {
+            throw std::runtime_error("No delimiters found. Cannot create a valid regex pattern.");
+        }
+
+        std::string pattern_str = "(";
+        for (const auto& delimiter : delimiters) {
+            if (!delimiter.empty()) {
+                pattern_str += regex_escape(delimiter) + "|";
+            }
+        }
+        if (pattern_str.back() == '|') {
+            pattern_str.pop_back(); // Remove the trailing "|".
+        }
+        pattern_str += ")";
+
+        if (pattern_str == "()") {
+            throw std::runtime_error("Invalid regex pattern: " + pattern_str);
+        }
+        return std::make_tuple(std::regex(pattern_str), delimiters);
+    }
+
+    std::vector<std::string> split_by_multiple_delimiters(const std::regex& pattern, const std::string& str, bool include_delimiters) {
+        std::vector<std::string> result;
+        auto words_begin = std::sregex_iterator(str.begin(), str.end(), pattern);
+        auto words_end = std::sregex_iterator();
+
+        size_t last_pos = 0;
+        for (std::sregex_iterator iter = words_begin; iter != words_end; ++iter) {
+            std::smatch match = *iter;
+            size_t current_pos = match.position();
+            if (current_pos > last_pos) {
+                result.push_back(str.substr(last_pos, current_pos - last_pos));
+            }
+            if (include_delimiters) {
+                result.push_back(match.str());
+            }
+            last_pos = current_pos + match.length();
+        }
+
+        if (last_pos < str.length()) {
+            result.push_back(str.substr(last_pos));
+        }
+
+        return result;
+    }
+
+
+    std::vector<std::string> find_special_chars_with_high_freq(const std::vector<std::string>& str_list, size_t freq_threshold = 10) {
+        std::vector<char> candidates = {',', ' ', '|', ';', '[', ']', '(', ')', '_', '/'};
+        std::unordered_map<char, size_t> char_counter;
+        for (const auto& s : str_list) {
+            for (char c : s) {
+                if (std::find(candidates.begin(), candidates.end(), c) != candidates.end()) {
+                    char_counter[c]++;
+                }
+            }
+        }
+
+        std::vector<std::string> result;
+        for (const auto& pair : char_counter) {
+            if (pair.second > freq_threshold) {
+                result.push_back(std::string(1, pair.first));
+            }
+        }
+
+        // If the result is empty, add a space character.
+        if (result.empty()) {
+            result.push_back(" ");
+        }
+
+        return result;
+    }
+};
+/*
+Part Four: Block compression implementation
+
+METHODS:
+ensure_directory_exists
+sanitize_filename
+delta_transform
+compressDirectory
+processLogBlock
+
+DESCRIPTIONS: processLogBlock is the "main" function, which is designed to compress each log block. 
+log_processor.replace_and_group(block); is to parse Pure numbers & Tokens containing only***.
+std::vector<std::string> modified_logs = denum_processor.variable_extract(final_output, std::to_string(block_id)); is to parse Numeric variables.
+denum_processor.store_content_with_ids(modified_logs, "all", std::to_string(block_id), "lzma"); is an implementation of String Processing, which uses
+Dict-IDs manner to store logs without numbers. 
+
+
+*/
 
 
 
 void ensure_directory_exists(const std::string& dir) {
     struct stat buffer;
-    if (stat(dir.c_str(), &buffer) != 0) { // 检查目录是否存在
+    if (stat(dir.c_str(), &buffer) != 0) { // Check if the directory exists.
         #ifdef _WIN32
-        _mkdir(dir.c_str());  // Windows 系统创建目录
+        _mkdir(dir.c_str());  // Create directory on Windows system.
         #else
-        mkdir(dir.c_str(), 0777);  // Unix/Linux 系统创建目录
+        mkdir(dir.c_str(), 0777);  // Create directory on Unix/Linux system.
         #endif
     }
 }
 
+
 std::string sanitize_filename(std::string filename) {
-    std::replace(filename.begin(), filename.end(), '<', '_');  // 将 '<' 替换为 '_'
-    std::replace(filename.begin(), filename.end(), '>', '_');  // 将 '>' 替换为 '_'
+    std::replace(filename.begin(), filename.end(), '<', '_');  // Replace '<' with '_'.
+    std::replace(filename.begin(), filename.end(), '>', '_');  // Replace '>' with '_'.
     return filename;
 }
 
-void process_block(const std::vector<int64_t>& input, std::vector<int64_t>& output, size_t start, size_t end) {
-    if (start >= end) return;
-    if (start == 0) {
-        output.push_back(input[start]);
-        ++start;
-    }
-    for (size_t i = start; i < end; ++i) {
-        output.push_back(input[i] - input[i - 1]);
-    }
-}
+/*
+delta_transform() : Calculate the difference between adjacent numbers.
+
+input: number list
+
+output: difference list
+*/
 
 std::list<int64_t> delta_transform(const std::list<int64_t>& num_list) {
     if (num_list.empty()) {
-        return {}; // 如果列表为空，返回空列表
+        return {}; // If the list is empty, return an empty list.
     }
 
     std::list<int64_t> new_list;
 
     auto it = num_list.begin();
     int64_t initial = *it;
-    new_list.push_back(initial); // 添加第一个元素
+    new_list.push_back(initial); // Add the initial element.
     int64_t last = initial;
 
     for (++it; it != num_list.end(); ++it) {
@@ -472,9 +563,6 @@ std::list<int64_t> delta_transform(const std::list<int64_t>& num_list) {
 
     return new_list;
 }
-
-
-
 
 
 void compressDirectory(const std::string& output_dir, int block_id) {
@@ -489,50 +577,103 @@ void compressDirectory(const std::string& output_dir, int block_id) {
     }
 }
 
-void processLogBlock(const std::vector<std::string>& block, int block_id, const std::string& output_dir, LogProcessor& log_processor, DenumLogProcessor& denum_processor) {
-    auto [final_output, final_patterns] = log_processor.replace_and_group(block);
-    std::string logname_dir = output_dir + "/" + std::to_string(block_id)+ "/";
-    ensure_directory_exists(logname_dir);
-    std::vector<std::string> modified_logs = denum_processor.variable_extract(final_output, std::to_string(block_id));
-    denum_processor.store_content_with_ids(modified_logs, "all", std::to_string(block_id), "lzma");
 
+void processLogBlock(const std::vector<std::string>& block, int block_id, const std::string& output_dir, LogProcessor& log_processor, DenumLogProcessor& denum_processor, std::map<int, std::vector<std::string>>& final_outputs, const std::string& output_logs) {
+    auto [final_output, final_patterns] = log_processor.replace_and_group(block); // parse Pure numbers & Tokens containing only ***.
+    std::string logname_dir = output_dir + "/" + std::to_string(block_id) + "/";
+    ensure_directory_exists(logname_dir);
+    std::vector<std::string> modified_logs = denum_processor.variable_extract(final_output, std::to_string(block_id)); // parse Numeric variables
+
+    if (output_logs == "1") {
+        denum_processor.store_content_with_ids(modified_logs, "all", std::to_string(block_id), "lzma"); // an implementation of String Processing, which uses Dict-IDs manner to store logs without numbers.
+    }
+    else if (output_logs == "2") {
+        final_outputs[block_id] = modified_logs;
+    }
+    else if (output_logs == "3") {
+
+        std::ofstream final_log_file(logname_dir +  "logswithoutnums.log");
+        if (!final_log_file.is_open()) {
+            std::cerr << "Unable to open final log file for writing: " << logname_dir +  "logswithoutnums.log" << std::endl;
+            return;
+        }
+
+        for (const auto& log : modified_logs) {
+                final_log_file << log << std::endl;
+            }
+        
+        final_log_file.close();
+    }
+
+
+    // Collect the final_output with block_id
+    // final_outputs[block_id] = final_output;
+    // final_outputs[block_id] = modified_logs;
+    // This part of codes is related to how to store these parsing results (numbers). 
     for (const auto &pair : final_patterns) {
         std::vector<unsigned char> encoded_buffer;
         std::string sanitized_filename = sanitize_filename(pair.first);
         std::string filename = logname_dir  + sanitized_filename + ".bin";
         std::ofstream file(filename, std::ios::out | std::ios::binary);
         std::list<int64_t>  transformed;
+        // This part of codes can be modified based on your empirical kownledge on your datasets. 
         if (pair.first != "<I>" && pair.first != "<a>" && pair.first != "<b>"&& pair.first != "<c>") {
-            // 当 pair.first 不是 "<T>" 或 "<I>" 时执行 delta_transform
+            // Perform delta_transform when there is no arthimtic relationship.
             transformed = delta_transform(pair.second);
         } else {
-            // 当 pair.first 是 "<T>" 或 "<I>" 时保持不变
             transformed =pair.second;
         }
         for (const auto& num : transformed) {
             auto encoded = elastic_encode(num);
             file.write(reinterpret_cast<const char*>(encoded.data()), encoded.size());
         }
-        file.close(); // 确保文件关闭
+        file.close(); // Ensure the file is closed.
     }
 
-    // 压缩当前块的输出目录
+    // Compress the output directory of the current block.
     compressDirectory(output_dir, block_id);
 }
 
+/*
+Part Five: main function
 
-int main(int argc, char* argv[]) {
-    if (argc < 2) {
+argv[0]: logname
+
+argv[1]: block size
+
+argv[2]: mode, "1" represents default Denum, "2" is to generate logs without numbers for RQ3, "3" is Denum without string processing for RQ4
+
+DESCRIPTIONS: Divide the input log into different log blocks, call processLogBlock for compression in multiprocessing manner, and output CR & CS, etc.
+*/
+
+int main(int argc, char* argv[]) { 
+    if (argc < 4) {
         std::cerr << "Usage: " << argv[0] << " <logname>" << std::endl;
         return 1;
     }
 
     const std::string logname = argv[1];
+    size_t BLOCK_SIZE;
+    const std::string output_logs = argv[3];
+
+
+    try {
+        BLOCK_SIZE = std::stoul(argv[2]);
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Invalid block size argument: " << argv[2] << std::endl;
+        return 1;
+    } catch (const std::out_of_range& e) {
+        std::cerr << "Block size value out of range: " << argv[2] << std::endl;
+        return 1;
+    }
+
+    std::cout << "Block Size: " << BLOCK_SIZE << std::endl;
     auto start = std::chrono::high_resolution_clock::now();
     const std::string log_path = "Logs/" + logname + "/" + logname + ".log";
     
-    const int num_threads = 4; // 根据CPU核心数调整
+    const int num_threads = 4; // Adjust based on the number of CPU cores.
     std::vector<std::future<void>> futures;
+    std::map<int, std::vector<std::string>> final_outputs;
 
     LogProcessor log_processor(logname);
     DenumLogProcessor denum_processor(logname);
@@ -543,7 +684,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // 清理并确保输出目录存在
+    // Clean up and ensure the output directory exists.
     std::string command = "rm -rf output/" + logname + "/* ";
     int result = std::system(command.c_str());
     ensure_directory_exists("output/" + logname);
@@ -556,18 +697,18 @@ int main(int argc, char* argv[]) {
     while (std::getline(log_file, line)) {
         block.push_back(line);
         if (block.size() == BLOCK_SIZE) {
-            futures.push_back(std::async(std::launch::async, processLogBlock, block, block_index, "output/" + logname, std::ref(log_processor), std::ref(denum_processor)));
+            futures.push_back(std::async(std::launch::async, processLogBlock, block, block_index, "output/" + logname, std::ref(log_processor), std::ref(denum_processor), std::ref(final_outputs), output_logs));
             block.clear();
             ++block_index;
         }
     }
 
-    // 处理剩余的日志行（如果有）
+    // Process any remaining log lines (if any).
     if (!block.empty()) {
-        futures.push_back(std::async(std::launch::async, processLogBlock, block, block_index, "output/" + logname, std::ref(log_processor), std::ref(denum_processor)));
+        futures.push_back(std::async(std::launch::async, processLogBlock, block, block_index, "output/" + logname, std::ref(log_processor), std::ref(denum_processor), std::ref(final_outputs),output_logs));
     }
 
-    // 等待所有线程完成
+    // Wait for all threads to complete.
     for (auto& future : futures) {
         future.wait();
     }
@@ -578,19 +719,30 @@ int main(int argc, char* argv[]) {
     double dataSizeInMB = static_cast<double>(fileSize) / (1024.0 * 1024.0);
     double speedInMBPerSecond = dataSizeInMB / duration.count() * 1000;
     double totalSize = 0;
+    double totalBytes = 0;
     for (int i = 0; i <= block_index; ++i) {
         std::string compressed_path = "output/" + logname + "/compressed" + std::to_string(i) + ".xz";
         std::uintmax_t achieved_fileSize = std::filesystem::file_size(compressed_path);
         double dataSizeInMB = static_cast<double>(achieved_fileSize) / (1024.0 * 1024.0);
         totalSize += dataSizeInMB;
+        totalBytes += achieved_fileSize;
     }
     double CR = dataSizeInMB / totalSize;
 
-    // 输出处理速度，保留三位小数
+    // Output time taken CR&CS, achieved size, keeping three decimal places.
     std::cout << "Replacement completed in " << duration.count() << " milliseconds." << std::endl;
     std::cout << "Compression speed: " << std::fixed << std::setprecision(3) << speedInMBPerSecond << " MB/s" << std::endl;
-    std::cout << "Achieved size: " << totalSize << " bytes" << std::endl;
+    std::cout << "Achieved size: " << totalBytes << " Bytes" << std::endl;
     std::cout << "Compression ratio: " << std::fixed << std::setprecision(3) << CR << std::endl;
-
+    if (output_logs == "2") {
+        std::ofstream final_log_file("output/" + logname + ".log");
+        for (const auto& [block_id, output] : final_outputs) {
+            std::size_t length = output.size();
+            for (const auto& log : output) {
+                final_log_file << log << std::endl;
+            }
+        }
+        final_log_file.close();
+    }
     return 0;
 }
