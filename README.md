@@ -75,6 +75,14 @@ during compression is 001001001. Users need to pay attention to the changes in t
 
 2. `python3 lossy_check.py`
 
+### Docker
+
+1. `docker pull docker.io/gaiusyu/denumv1.0:latest`
+2. `docker run -v /Your/Path/to/Logs:/app/Logs -v /Your/Path/to/output:/app/output -v /Your/Path/to/decompress_output:/app/decompress_output -it denumv1.0 {logname} {chunksize} {stage}`
+3. Example to start a container: `docker run -v E:/CUHKSZ/Denum_ASE2024/Logs:/app/Logs -v E:/CUHKSZ/Denum_ASE2024/output:/app/output -v E:/CUHKSZ/Denum_ASE2024/decompress_output:/app/decompress_output -it denumv1.0 Apache 100000 1`
+
+
+
 ### Experiments Reproduction
 
 Research questions:
@@ -89,6 +97,7 @@ the performance of other log compressors?
 • RQ4: How does each module in Denum affect its compression
  ratio?
 
+You can also use **Docker** to replace the execution command below.
 
 ### - RQ1 & RQ2
 
