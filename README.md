@@ -49,6 +49,8 @@ The last parameter is used to facilitate the retrieval of experimental results f
 
 ### - Python implementation
 
+When you use Python, you need to manually configure different regular expressions for different datasets to capture various numeric tokens. Just like lines 143 to 159 in the C++ code of Denum.
+
 Assume the target log file is Logs/Apache/Apache.log
 
 1. `cd Denum_Package`
