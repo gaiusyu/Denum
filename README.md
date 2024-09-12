@@ -11,11 +11,11 @@ https://github.com/logpai/loghub
 
 download these datasets and copy them into Logs/{logname}/{logname}.log
 
-### Compress
+## Compress
 
-###  - C++ implementation
+####  - C++ implementation
 
-##### Dependencies
+###### Dependencies
 
 python >= 3.7.3
 
