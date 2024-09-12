@@ -11,11 +11,9 @@ https://github.com/logpai/loghub
 
 download these datasets and copy them into Logs/{logname}/{logname}.log
 
-## Compress
+## PREREQUISITE 
 
-####  - C++ implementation
-
-###### Dependencies
+###  - Software dependencies
 
 python >= 3.7.3
 
@@ -30,6 +28,23 @@ libboost-iostreams-dev = 1.71.0.0ubuntu2
 In our environment with gcc, we used the following two commands to complete the configuration of the experimental environment: 
 
 1. ` apt install libpcre2-dev` 2. `apt install libboost-iostreams-dev`
+
+###  - Hardware dependencies
+
+#### 1. CPU
+- **Requirement:** A modern CPU with at least 4 cores.
+- **Recommendation:** Intel i5 or AMD Ryzen 5 or better.
+- **Explanation:** The program heavily relies on a multi-core CPU. This suggests it may use multithreading or multiprocessing techniques to handle tasks in parallel.
+
+#### 2. Memory (RAM)
+- **Minimum Requirement:** 4 GB
+- **Recommended:** 8 GB
+- **Explanation:** The program used a maximum resident set size of approximately 2.4 GB of memory during execution. At least 4 GB of RAM is needed to run the program and to provide enough memory for the operating system and other applications.
+
+## COMPRESS
+
+###  - C++ implementation
+
 
 ##### 1. Compile
 
@@ -49,15 +64,13 @@ The last parameter is used to facilitate the retrieval of experimental results f
 
 ### - Python implementation
 
-When you use Python, you need to manually configure different regular expressions for different datasets to capture various numeric tokens. Just like lines 143 to 159 in the C++ code of Denum.
-
 Assume the target log file is Logs/Apache/Apache.log
 
 1. `cd Denum_Package`
 
 2. `python3 compress.py Apache`
 
-### Decompress
+## DECOMPRESS
 
 Note that datasets using different tags may encounter errors during decompression. We have only designed the recovery of the 
 IP address for Apache decompression. When applied to specific tags in specific datasets, users may need to mimic the function 
@@ -70,22 +83,22 @@ during compression is 001001001. Users need to pay attention to the changes in t
 
 2. `python3 decompress.py Apache`
 
-### Lossy Check
+### - Lossy Check
 
 
 1. `cd ..`
 
 2. `python3 lossy_check.py`
 
-### Docker
+## DOCKER
 
 1. `docker pull docker.io/gaiusyu/denumv1.0:latest`
-2. `docker run -v /Your/Path/to/Logs:/app/Logs -v /Your/Path/to/output:/app/output -v /Your/Path/to/decompress_output:/app/decompress_output -it denumv1.0 {logname} {chunksize} {stage}`
-3. Example to start a container: `docker run -v E:/CUHKSZ/Denum_ASE2024/Logs:/app/Logs -v E:/CUHKSZ/Denum_ASE2024/output:/app/output -v E:/CUHKSZ/Denum_ASE2024/decompress_output:/app/decompress_output -it denumv1.0 Apache 100000 1`
+2. `docker run -v /Your/Path/to/Logs:/app/Logs -v /Your/Path/to/output:/app/output -v /Your/Path/to/decompress_output:/app/decompress_output -it gaiusyu/denumv1.0 {logname} {chunksize} {stage}`
+3. Example to start a container: `docker run -v E:/CUHKSZ/Denum_ASE2024/Logs:/app/Logs -v E:/CUHKSZ/Denum_ASE2024/output:/app/output -v E:/CUHKSZ/Denum_ASE2024/decompress_output:/app/decompress_output -it gaiusyu/denumv1.0 Apache 100000 1`
 
 
 
-### Experiments Reproduction
+## EXPERIMENTS REPRODUCTION
 
 Research questions:
 
