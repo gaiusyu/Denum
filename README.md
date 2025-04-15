@@ -1,5 +1,4 @@
-# To Do
-## Denum may perform worse on some industrial datasets compared to existing methods, we found spliting and saving variables (words containing numbers) based on context words will further enhance performance, I will merge this part of code in the near furture.
+
 
 # Denum
 ## Unlocking the Power of Numbers: Log Compression via Numeric Token Parsing
